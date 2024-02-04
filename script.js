@@ -1,3 +1,4 @@
+const border-size = getComputedStyle()
 const container = document.getElementById("container");
 
 function spawnSquares(size) {
@@ -10,7 +11,7 @@ function spawnSquares(size) {
         container.appendChild(yDiv);
 
         if (yIndex === size - 1) {
-            yDiv.style.cssText = "border-bottom: 0.5px solid";
+            xDiv.style.cssText = "border-right: 0.5px solid";
         }
         
         //Create X divs

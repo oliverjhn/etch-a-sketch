@@ -1,3 +1,6 @@
+:root {
+    --border-size: 0.5px solid;
+}
 #container {
     width: 500px;
     height: 500px;
@@ -8,10 +11,10 @@
 .yDiv {
     display: flex;
     flex-grow: 1;
-    border-right: 0.5px solid;
+    border-right: var(--border-size);
 }
 .xDiv {
-    border-top: 0.5px solid;
-    border-left: 0.5px solid;
+    border-top: var(--border-size);
+    border-left: var(--border-size);
     flex-grow: 1;
 }
