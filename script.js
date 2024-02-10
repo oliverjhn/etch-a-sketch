@@ -12,8 +12,6 @@ function spawnSquares(size) {
         container.appendChild(yDiv);
 
         if (yIndex === size - 1) {
-            // yDiv.style.cssText = "border-bottom: 0.5px solid";
-            // yDiv.style.cssText = "border-bottom: var(borderSize)";
             root = document.documentElement;
             borderSize = getComputedStyle(root).getPropertyValue('--border-size');
             yDiv.style.borderBottom = borderSize;
@@ -25,17 +23,16 @@ function spawnSquares(size) {
 
             xDiv.className = "drawDiv xDiv";
             xDiv.id = xIndex.toString();
-            // if (xIndex === size - 1) {
-            //     xDiv.style.cssText = "border-right: 0.5px solid";
-            // }
+            xDiv.addEventListener("mouseover", colorSquare);
             yDiv.appendChild(xDiv);
         }
     }
 
 }
 
-function colorSquare(params) {
-
+function colorSquare(event) {
+    let target = event.target;
+    target.style.backgroundColor = "black";
 }
 
-spawnSquares(16);
+spawnSquares(100);
