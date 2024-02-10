@@ -1,4 +1,5 @@
-const border-size = getComputedStyle()
+let root = document.documentElement;
+let borderSize = getComputedStyle(root).getPropertyValue('--border-size');
 const container = document.getElementById("container");
 
 function spawnSquares(size) {
@@ -11,9 +12,13 @@ function spawnSquares(size) {
         container.appendChild(yDiv);
 
         if (yIndex === size - 1) {
-            xDiv.style.cssText = "border-right: 0.5px solid";
+            // yDiv.style.cssText = "border-bottom: 0.5px solid";
+            // yDiv.style.cssText = "border-bottom: var(borderSize)";
+            root = document.documentElement;
+            borderSize = getComputedStyle(root).getPropertyValue('--border-size');
+            yDiv.style.borderBottom = borderSize;
         }
-        
+
         //Create X divs
         for (let xIndex = 0; xIndex < size; xIndex++) {
             const xDiv = document.createElement("div");
