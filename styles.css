@@ -1,10 +1,16 @@
 :root {
-    --border-size: 0.25px solid;
+    --border-size: 0.1px solid;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #container {
-    width: 500px;
-    height: 500px;
+    width: 1000px;
+    height: 1000px;
     display: flex;
     flex-direction: column;
 }

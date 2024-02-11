@@ -3,6 +3,9 @@ let borderSize = getComputedStyle(root).getPropertyValue('--border-size');
 const container = document.getElementById("container");
 
 function spawnSquares(size) {
+    if (borderSize == '0px solid') {
+        container.style.border = "1px solid";
+    }
     for (let yIndex = 0; yIndex < size; yIndex++) {
         //Create Y divs
         const yDiv = document.createElement("div");
@@ -35,4 +38,4 @@ function colorSquare(event) {
     target.style.backgroundColor = "black";
 }
 
-spawnSquares(100);
+spawnSquares(16);
