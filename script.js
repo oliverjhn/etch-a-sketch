@@ -1,6 +1,8 @@
 let root = document.documentElement;
 let borderSize = getComputedStyle(root).getPropertyValue('--border-size');
 const container = document.getElementById("container");
+const numberInput = document.getElementById("number-input");
+const refresh = document.getElementById("refresh");
 
 function spawnSquares(size) {
     if (borderSize == '0px solid') {
@@ -38,4 +40,22 @@ function colorSquare(event) {
     target.style.backgroundColor = "black";
 }
 
+numberInput.addEventListener("input", (e) => {
+    if (e.target.value > 100) {
+        e.target.value = 100;
+    }
+    if (e.target.value < 1) {
+        e.target.value = 1
+    }
+    container.replaceChildren();
+    spawnSquares(e.target.value);
+});
+
+refresh.addEventListener("click", (e) => {
+    container.replaceChildren();
+    spawnSquares(numberInput.value);
+});
+
+
 spawnSquares(16);
+numberInput.value = 16;
